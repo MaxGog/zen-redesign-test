@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Концепт мобильного интерфейса Дзена">
+  <meta name="description" content="Концепт мобильного интерфейса Дзена: короткие видео, новости и студия автора.">
   <title>Дзен — Главная</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://picsum.photos">
+  <link rel="preconnect" href="https://i.pravatar.cc">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="./css/style.css">
   <script type="module" src="./js/app.js"></script>
@@ -16,15 +15,11 @@
 <body>
   <div class="app">
     <header class="header">
-      <a class="logo" href="#" aria-label="Дзен — главная">Дзен</a>
+      <a class="logo" href="#home" aria-label="Дзен — главная">Дзен</a>
       <div class="header-actions">
         <button class="icon-button" id="searchButton" aria-label="Поиск"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <button class="icon-button notification-button" id="notificationsButton" aria-label="Уведомления">
-          <i class="fa-regular fa-bell"></i><span class="notification-dot"></span>
-        </button>
-        <button class="avatar-button" id="profileButton" aria-label="Открыть профиль" aria-expanded="false">
-          <img src="https://i.pravatar.cc/100?img=11" alt="">
-        </button>
+        <button class="icon-button notification-button" id="notificationsButton" aria-label="Уведомления"><i class="fa-regular fa-bell"></i><span class="notification-dot"></span></button>
+        <button class="avatar-button" id="profileButton" aria-label="Открыть профиль" aria-expanded="false"><img src="https://i.pravatar.cc/100?img=11" alt="Аватар профиля"></button>
       </div>
     </header>
 
@@ -39,81 +34,55 @@
     </nav>
 
     <main class="feed" id="feed">
-      <article class="post" data-category="cinema articles">
-        <div class="author">
-          <img class="author-avatar" src="https://i.pravatar.cc/100?img=12" alt="">
-          <div class="author-meta"><strong>Кинопоиск</strong><span>2 часа назад · Статья</span></div>
-          <button class="follow-button" data-follow>Читать</button>
+      <section class="feed-section shorts-section" data-feed-section="video" aria-labelledby="shortsTitle">
+        <div class="section-heading"><div><span class="eyebrow">Смотрите сейчас</span><h2 id="shortsTitle">Короткие видео</h2></div><button class="text-link" data-open-videos>Все видео <i class="fa-solid fa-chevron-right"></i></button></div>
+        <div class="shorts-row">
+          <button class="short-card" data-video="0" aria-label="Открыть видео: 30 секунд в горах"><img src="https://picsum.photos/seed/zen-short-mountain/420/680" alt="Горный пейзаж"><span class="short-play"><i class="fa-solid fa-play"></i></span><span class="short-duration">0:30</span><span class="short-caption">30 секунд в горах</span><span class="short-author">Мир вокруг</span></button>
+          <button class="short-card" data-video="1" aria-label="Открыть видео: Идеи для завтрака"><img src="https://picsum.photos/seed/zen-short-food/420/680" alt="Завтрак на столе"><span class="short-play"><i class="fa-solid fa-play"></i></span><span class="short-duration">0:45</span><span class="short-caption">Идеи для завтрака</span><span class="short-author">Вкусно дома</span></button>
+          <button class="short-card" data-video="2" aria-label="Открыть видео: Город с высоты"><img src="https://picsum.photos/seed/zen-short-city/420/680" alt="Городской пейзаж"><span class="short-play"><i class="fa-solid fa-play"></i></span><span class="short-duration">0:58</span><span class="short-caption">Город с высоты</span><span class="short-author">Фотоистории</span></button>
+          <button class="short-card" data-video="3" aria-label="Открыть видео: Быстрый лайфхак"><img src="https://picsum.photos/seed/zen-short-diy/420/680" alt="Предметы для творчества"><span class="short-play"><i class="fa-solid fa-play"></i></span><span class="short-duration">0:22</span><span class="short-caption">Быстрый лайфхак</span><span class="short-author">Полезное каждый день</span></button>
         </div>
+      </section>
+
+      <section class="feed-section news-section" data-feed-section="news" aria-labelledby="newsTitle">
+        <div class="section-heading"><div><span class="eyebrow">Главное за день</span><h2 id="newsTitle">Коротко о главном</h2></div><span class="live-label"><span></span> Обновляется</span></div>
+        <div class="quick-news-list">
+          <button class="quick-news" data-news="0"><img src="https://picsum.photos/seed/zen-news-tech/220/160" alt="Технологические новости"><span class="quick-news-copy"><strong>Новые технологии меняют привычные устройства</strong><small>Технологии сегодня · 12 минут назад</small></span><i class="fa-solid fa-chevron-right"></i></button>
+          <button class="quick-news" data-news="1"><img src="https://picsum.photos/seed/zen-news-world/220/160" alt="Городская панорама"><span class="quick-news-copy"><strong>Что происходит в мире: важные события дня</strong><small>Новости дня · 28 минут назад</small></span><i class="fa-solid fa-chevron-right"></i></button>
+          <button class="quick-news" data-news="2"><img src="https://picsum.photos/seed/zen-news-science/220/160" alt="Научное исследование"><span class="quick-news-copy"><strong>Учёные представили результаты нового исследования</strong><small>Наука рядом · 46 минут назад</small></span><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <article class="post" data-category="cinema articles">
+        <div class="author"><img class="author-avatar" src="https://i.pravatar.cc/100?img=12" alt=""><div class="author-meta"><strong>Кинопоиск</strong><span>2 часа назад · Статья</span></div><button class="follow-button" data-follow>Читать</button></div>
         <h2 class="post-title">Главные премьеры месяца: что посмотреть в кино и дома</h2>
         <p class="post-description">Собрали самые ожидаемые фильмы и сериалы, которые выходят в ближайшие недели. От блокбастеров до авторского кино.</p>
         <img class="post-image" src="https://picsum.photos/seed/cinema/900/506" alt="Кадр для подборки кинопремьер">
-        <div class="post-actions">
-          <div class="action-group">
-            <button class="post-action like-button" aria-label="Нравится"><i class="fa-regular fa-heart"></i><span>1,2K</span></button>
-            <button class="post-action" data-toast="Комментарии пока доступны в демонстрационном режиме"><i class="fa-regular fa-comment"></i><span>45</span></button>
-          </div>
-          <button class="post-action save-button" aria-label="Сохранить"><i class="fa-regular fa-bookmark"></i></button>
-        </div>
+        <div class="post-actions"><div class="action-group"><button class="post-action like-button" aria-label="Нравится" aria-pressed="false"><i class="fa-regular fa-heart"></i><span>1,2K</span></button><button class="post-action" data-toast="Комментарии пока доступны в демонстрационном режиме"><i class="fa-regular fa-comment"></i><span>45</span></button></div><button class="post-action save-button" aria-label="Сохранить" aria-pressed="false"><i class="fa-regular fa-bookmark"></i></button></div>
       </article>
 
       <article class="post" data-category="video travel">
-        <div class="author">
-          <img class="author-avatar" src="https://i.pravatar.cc/100?img=32" alt="">
-          <div class="author-meta"><strong>Мир вокруг</strong><span>4 часа назад · Видео</span></div>
-          <button class="follow-button" data-follow>Читать</button>
-        </div>
+        <div class="author"><img class="author-avatar" src="https://i.pravatar.cc/100?img=32" alt=""><div class="author-meta"><strong>Мир вокруг</strong><span>4 часа назад · Видео</span></div><button class="follow-button" data-follow>Читать</button></div>
         <h2 class="post-title">Удивительные места планеты, которые стоит увидеть своими глазами</h2>
-        <div class="video-cover">
-          <img class="post-image vertical" src="https://picsum.photos/seed/nature/700/1000" alt="Пейзаж для видеопубликации">
-          <span class="video-duration"><i class="fa-solid fa-play"></i> 05:24</span>
-        </div>
-        <div class="post-actions">
-          <div class="action-group">
-            <button class="post-action like-button" aria-label="Нравится"><i class="fa-regular fa-heart"></i><span>850</span></button>
-            <button class="post-action" data-toast="Комментарии пока доступны в демонстрационном режиме"><i class="fa-regular fa-comment"></i><span>12</span></button>
-          </div>
-          <button class="post-action save-button" aria-label="Сохранить"><i class="fa-regular fa-bookmark"></i></button>
-        </div>
+        <button class="video-cover post-video-trigger" data-video="0" aria-label="Смотреть видео"><img class="post-image vertical" src="https://picsum.photos/seed/nature/700/1000" alt="Пейзаж для видеопубликации"><span class="video-duration"><i class="fa-solid fa-play"></i> 05:24</span></button>
+        <div class="post-actions"><div class="action-group"><button class="post-action like-button" aria-label="Нравится" aria-pressed="false"><i class="fa-regular fa-heart"></i><span>850</span></button><button class="post-action" data-toast="Комментарии пока доступны в демонстрационном режиме"><i class="fa-regular fa-comment"></i><span>12</span></button></div><button class="post-action save-button" aria-label="Сохранить" aria-pressed="false"><i class="fa-regular fa-bookmark"></i></button></div>
       </article>
 
       <article class="post" data-category="articles">
-        <div class="author">
-          <img class="author-avatar" src="https://i.pravatar.cc/100?img=44" alt="">
-          <div class="author-meta"><strong>Здоровый образ</strong><span>Вчера · Статья</span></div>
-        </div>
+        <div class="author"><img class="author-avatar" src="https://i.pravatar.cc/100?img=44" alt=""><div class="author-meta"><strong>Здоровый образ</strong><span>Вчера · Статья</span></div></div>
         <h2 class="post-title">5 привычек, которые незаметно крадут вашу энергию каждый день</h2>
         <p class="post-description">Часто мы чувствуем усталость не из-за недостатка сна, а из-за мелких ежедневных действий, которые высасывают силы. Разбираем основные ошибки.</p>
-        <div class="post-actions">
-          <div class="action-group">
-            <button class="post-action like-button" aria-label="Нравится"><i class="fa-regular fa-heart"></i><span>3,4K</span></button>
-            <button class="post-action" data-toast="Комментарии пока доступны в демонстрационном режиме"><i class="fa-regular fa-comment"></i><span>120</span></button>
-          </div>
-          <button class="post-action save-button" aria-label="Сохранить"><i class="fa-regular fa-bookmark"></i></button>
-        </div>
+        <div class="post-actions"><div class="action-group"><button class="post-action like-button" aria-label="Нравится" aria-pressed="false"><i class="fa-regular fa-heart"></i><span>3,4K</span></button><button class="post-action" data-toast="Комментарии пока доступны в демонстрационном режиме"><i class="fa-regular fa-comment"></i><span>120</span></button></div><button class="post-action save-button" aria-label="Сохранить" aria-pressed="false"><i class="fa-regular fa-bookmark"></i></button></div>
       </article>
 
       <article class="post" data-category="tech news">
-        <div class="author">
-          <img class="author-avatar" src="https://i.pravatar.cc/100?img=15" alt="">
-          <div class="author-meta"><strong>Технологии сегодня</strong><span>5 часов назад · Технологии</span></div>
-        </div>
+        <div class="author"><img class="author-avatar" src="https://i.pravatar.cc/100?img=15" alt=""><div class="author-meta"><strong>Технологии сегодня</strong><span>5 часов назад · Технологии</span></div></div>
         <h2 class="post-title">Как меняются смартфоны и чего ждать от технологий будущего?</h2>
         <img class="post-image" src="https://picsum.photos/seed/technology/900/506" alt="Иллюстрация о технологиях">
-        <div class="post-actions">
-          <div class="action-group">
-            <button class="post-action like-button" aria-label="Нравится"><i class="fa-regular fa-heart"></i><span>760</span></button>
-            <button class="post-action" data-toast="Комментарии пока доступны в демонстрационном режиме"><i class="fa-regular fa-comment"></i><span>34</span></button>
-          </div>
-          <button class="post-action save-button" aria-label="Сохранить"><i class="fa-regular fa-bookmark"></i></button>
-        </div>
+        <div class="post-actions"><div class="action-group"><button class="post-action like-button" aria-label="Нравится" aria-pressed="false"><i class="fa-regular fa-heart"></i><span>760</span></button><button class="post-action" data-toast="Комментарии пока доступны в демонстрационном режиме"><i class="fa-regular fa-comment"></i><span>34</span></button></div><button class="post-action save-button" aria-label="Сохранить" aria-pressed="false"><i class="fa-regular fa-bookmark"></i></button></div>
       </article>
 
-      <div class="empty-state" id="emptyState" hidden>
-        <i class="fa-solid fa-layer-group"></i>
-        <strong>Здесь пока пусто</strong>
-        <span>В этой категории пока нет публикаций.</span>
-      </div>
+      <div class="empty-state" id="emptyState" hidden><i class="fa-solid fa-layer-group"></i><strong>Здесь пока пусто</strong><span>В этой категории пока нет публикаций.</span></div>
       <div class="feed-end"><i class="fa-solid fa-circle-check"></i><span>На сегодня пока всё</span></div>
     </main>
 
@@ -121,51 +90,22 @@
       <button class="nav-item active" data-tab="home"><i class="fa-solid fa-house"></i><span>Главная</span></button>
       <button class="nav-item" data-tab="video"><i class="fa-solid fa-play"></i><span>Видео</span></button>
       <button class="nav-item" data-tab="create"><i class="fa-solid fa-plus create-icon"></i><span>Создать</span></button>
-      <button class="nav-item" data-tab="collections"><i class="fa-regular fa-bookmark"></i><span>Коллекции</span></button>
+      <button class="nav-item" data-tab="studio"><i class="fa-solid fa-chart-line"></i><span>Студия</span></button>
       <button class="nav-item" data-tab="profile"><i class="fa-regular fa-user"></i><span>Профиль</span></button>
     </nav>
 
     <div class="overlay" id="overlay"></div>
-
     <aside class="profile-menu" id="profileMenu" aria-label="Меню профиля">
-      <div class="profile-info">
-        <img src="https://i.pravatar.cc/100?img=11" alt="">
-        <div><strong>Максим Апшер</strong><span>@maxupshur</span></div>
-      </div>
-      <button class="menu-item" data-section="Мой профиль"><i class="fa-regular fa-user"></i>Мой профиль</button>
-      <button class="menu-item" data-section="Мои публикации"><i class="fa-regular fa-file-lines"></i>Мои публикации</button>
-      <button class="menu-item" data-section="Подписки"><i class="fa-solid fa-users"></i>Подписки</button>
-      <button class="menu-item" data-section="Настройки"><i class="fa-solid fa-gear"></i>Настройки</button>
-      <button class="menu-item" data-section="Помощь"><i class="fa-regular fa-circle-question"></i>Помощь</button>
+      <div class="profile-info"><img src="https://i.pravatar.cc/100?img=11" alt=""><div><strong>Максим Апшер</strong><span>@maxupshur</span></div></div>
+      <button class="menu-item" data-section="profile"><i class="fa-regular fa-user"></i>Мой профиль</button>
+      <button class="menu-item" data-section="studio"><i class="fa-solid fa-chart-line"></i>Студия автора</button>
+      <button class="menu-item" data-section="posts"><i class="fa-regular fa-file-lines"></i>Мои публикации</button>
+      <button class="menu-item" data-section="settings"><i class="fa-solid fa-gear"></i>Настройки</button>
     </aside>
 
-    <section class="panel" id="searchPanel" aria-label="Поиск">
-      <div class="panel-header"><button class="back-button" data-close><i class="fa-solid fa-arrow-left"></i></button><h2>Поиск</h2></div>
-      <div class="panel-content">
-        <input class="search-input" id="searchInput" type="search" placeholder="Поиск публикаций..." autocomplete="off">
-        <p class="panel-hint">Популярные темы</p>
-        <div class="popular-searches">
-          <button data-query="технологии">Технологии</button>
-          <button data-query="кино">Кино и сериалы</button>
-          <button data-query="путешествия">Путешествия</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel" id="notificationsPanel" aria-label="Уведомления">
-      <div class="panel-header"><button class="back-button" data-close><i class="fa-solid fa-arrow-left"></i></button><h2>Уведомления</h2></div>
-      <div class="panel-content">
-        <div class="notification"><i class="fa-solid fa-heart"></i><div><strong>Новая реакция</strong><span>Кому-то понравилась ваша публикация.</span><small>10 минут назад</small></div></div>
-        <div class="notification"><i class="fa-solid fa-user-plus"></i><div><strong>Новый подписчик</strong><span>На вас подписался новый пользователь.</span><small>Вчера</small></div></div>
-        <div class="notification"><i class="fa-solid fa-bell"></i><div><strong>Добро пожаловать в Дзен!</strong><span>Здесь вы найдёте интересные публикации.</span><small>Недавно</small></div></div>
-      </div>
-    </section>
-
-    <section class="panel" id="sectionPanel" aria-label="Раздел приложения">
-      <div class="panel-header"><button class="back-button" data-close><i class="fa-solid fa-arrow-left"></i></button><h2 id="sectionTitle">Раздел</h2></div>
-      <div class="panel-content" id="sectionContent"></div>
-    </section>
-
+    <section class="panel" id="searchPanel" aria-label="Поиск"><div class="panel-header"><button class="back-button" data-close aria-label="Назад"><i class="fa-solid fa-arrow-left"></i></button><h2>Поиск</h2></div><div class="panel-content"><input class="search-input" id="searchInput" type="search" placeholder="Поиск публикаций..." autocomplete="off"><p class="panel-hint">Популярные темы</p><div class="popular-searches"><button data-query="технологии">Технологии</button><button data-query="кино">Кино и сериалы</button><button data-query="путешествия">Путешествия</button></div></div></section>
+    <section class="panel" id="notificationsPanel" aria-label="Уведомления"><div class="panel-header"><button class="back-button" data-close aria-label="Назад"><i class="fa-solid fa-arrow-left"></i></button><h2>Уведомления</h2></div><div class="panel-content"><div class="notification"><i class="fa-solid fa-heart"></i><div><strong>Новая реакция</strong><span>Кому-то понравилась ваша публикация.</span><small>10 минут назад</small></div></div><div class="notification"><i class="fa-solid fa-user-plus"></i><div><strong>Новый подписчик</strong><span>На вас подписался новый пользователь.</span><small>Вчера</small></div></div><div class="notification"><i class="fa-solid fa-bell"></i><div><strong>Добро пожаловать в Дзен!</strong><span>Здесь вы найдёте интересные публикации.</span><small>Недавно</small></div></div></div></section>
+    <section class="panel" id="sectionPanel" aria-label="Раздел приложения"><div class="panel-header"><button class="back-button" data-close aria-label="Назад"><i class="fa-solid fa-arrow-left"></i></button><h2 id="sectionTitle">Раздел</h2></div><div class="panel-content" id="sectionContent"></div></section>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </div>
 </body>

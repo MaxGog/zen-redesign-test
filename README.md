@@ -16,7 +16,7 @@
 ## 🚀 Как посмотреть
 
 Прототип развернут на GitHub Pages.
-👉 **[ССЫЛКА НА GITHUB PAGES]** *(замени на свою после публикации)*
+👉 **[[ССЫЛКА НА GITHUB PAGES](https://maxgog.github.io/zen-redesign-test/)]**
 
 ## 📝 Что дальше (План работ)
 

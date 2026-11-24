@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Дзен - Прототип</title>
+    <!-- Подключаем Tailwind CSS для быстрой стилизации -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Подключаем иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Скрываем скроллбар для горизонтальной ленты категорий */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Шрифт, максимально похожий на системный (как в приложении) */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex justify-center min-h-screen">
+
+    <!-- Контейнер телефона (на десктопе выглядит как экран) -->
+    <div
+        class="w-full max-w-[400px] bg-white h-[100vh] md:h-[850px] md:my-8 md:rounded-[40px] md:shadow-2xl overflow-hidden flex flex-col relative border border-gray-200">
+
+        <!-- ВЕРХНИЙ ХЕДЕР -->
+        <header class="flex items-center justify-between px-4 py-3 bg-white sticky top-0 z-10 border-b border-gray-100">
+            <!-- Логотип -->
+            <div class="text-2xl font-black tracking-tighter">Дзен</div>
+
+            <!-- Действия -->
+            <div class="flex items-center gap-4 text-gray-700 text-lg">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button><i class="fa-regular fa-bell"></i></button>
+                <div class="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
+                    <img src="https://i.pravatar.cc/100?img=11" alt="Avatar" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </header>
+
+        <!-- ГОРИЗОНТАЛЬНЫЕ ТАБЫ (КАТЕГОРИИ) -->
+        <nav
+            class="flex overflow-x-auto no-scrollbar px-4 py-2 border-b border-gray-100 bg-white z-10 gap-4 text-sm font-medium text-gray-500 whitespace-nowrap">
+            <button class="text-black border-b-2 border-black pb-1">Для вас</button>
+            <button class="pb-1 hover:text-black transition-colors">Новости</button>
+            <button class="pb-1 hover:text-black transition-colors">Статьи</button>
+            <button class="pb-1 hover:text-black transition-colors">Видео</button>
+            <button class="pb-1 hover:text-black transition-colors">Технологии</button>
+            <button class="pb-1 hover:text-black transition-colors">Кино</button>
+        </nav>
+
+        <!-- ЛЕНТА (FEED) -->
+        <main class="flex-1 overflow-y-auto bg-gray-50 pb-16">
+
+            <!-- Карточка 1 (Статья) -->
+            <article class="bg-white mb-2 p-4">
+                <div class="flex items-center gap-2 mb-3">
+                    <div
+                        class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-xs text-blue-600 font-bold">
+                        К</div>
+                    <span class="text-xs font-semibold text-gray-700">Кинопоиск</span>
+                    <span class="text-xs text-gray-400">• 2 часа назад</span>
+                </div>
+                <h2 class="text-lg font-bold leading-tight mb-2">Главные премьеры месяца: что посмотреть в кино и дома
+                </h2>
+                <p class="text-sm text-gray-600 mb-3 line-clamp-2">Собрали самые ожидаемые фильмы и сериалы, которые
+                    выходят в ближайшие недели. От блокбастеров до авторского кино.</p>
+                <div class="rounded-xl overflow-hidden mb-3 aspect-video bg-gray-200">
+                    <img src="https://picsum.photos/seed/cinema/600/340" alt="Обложка"
+                        class="w-full h-full object-cover">
+                </div>
+                <div class="flex items-center justify-between text-gray-500 text-sm">
+                    <div class="flex items-center gap-4">
+                        <button class="flex items-center gap-1 hover:text-black"><i class="fa-regular fa-thumbs-up"></i>
+                            <span>1.2K</span></button>
+                        <button class="flex items-center gap-1 hover:text-black"><i class="fa-regular fa-comment"></i>
+                            <span>45</span></button>
+                    </div>
+                    <button><i class="fa-solid fa-ellipsis"></i></button>
+                </div>
+            </article>
+
+            <!-- Карточка 2 (Короткое видео) -->
+            <article class="bg-white mb-2 p-4">
+                <div class="flex items-center gap-2 mb-3">
+                    <div
+                        class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-xs text-red-600 font-bold">
+                        М</div>
+                    <span class="text-xs font-semibold text-gray-700">Мир вокруг</span>
+                </div>
+                <h2 class="text-lg font-bold leading-tight mb-2">Удивительные места планеты, которые стоит увидеть
+                    своими глазами</h2>
+                <div class="rounded-xl overflow-hidden relative aspect-[9/16] max-h-[400px] bg-gray-200 mb-3">
+                    <img src="https://picsum.photos/seed/nature/400/700" alt="Видео" class="w-full h-full object-cover">
+                    <!-- Плашка видео -->
+                    <div
+                        class="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded backdrop-blur-sm flex items-center gap-1">
+                        <i class="fa-solid fa-play"></i> 05:24
+                    </div>
+                </div>
+                <div class="flex items-center justify-between text-gray-500 text-sm">
+                    <div class="flex items-center gap-4">
+                        <button class="flex items-center gap-1 hover:text-black"><i class="fa-regular fa-thumbs-up"></i>
+                            <span>850</span></button>
+                        <button class="flex items-center gap-1 hover:text-black"><i class="fa-regular fa-comment"></i>
+                            <span>12</span></button>
+                    </div>
+                    <button><i class="fa-solid fa-ellipsis"></i></button>
+                </div>
+            </article>
+
+            <!-- Карточка 3 (Текстовая) -->
+            <article class="bg-white mb-2 p-4">
+                <div class="flex items-center gap-2 mb-3">
+                    <div
+                        class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-xs text-green-600 font-bold">
+                        З</div>
+                    <span class="text-xs font-semibold text-gray-700">Здоровый образ</span>
+                </div>
+                <h2 class="text-lg font-bold leading-tight mb-2">5 привычек, которые незаметно крадут вашу энергию
+                    каждый день</h2>
+                <p class="text-sm text-gray-600 mb-3 line-clamp-3">Часто мы чувствуем усталость не из-за недостатка сна,
+                    а из-за мелких ежедневных действий, которые высасывают силы. Разбираем основные ошибки.</p>
+                <div class="flex items-center justify-between text-gray-500 text-sm">
+                    <div class="flex items-center gap-4">
+                        <button class="flex items-center gap-1 hover:text-black"><i class="fa-regular fa-thumbs-up"></i>
+                            <span>3.4K</span></button>
+                        <button class="flex items-center gap-1 hover:text-black"><i class="fa-regular fa-comment"></i>
+                            <span>120</span></button>
+                    </div>
+                    <button><i class="fa-solid fa-ellipsis"></i></button>
+                </div>
+            </article>
+
+            <!-- Заглушка "Загрузка" -->
+            <div class="flex justify-center py-6 text-gray-400">
+                <i class="fa-solid fa-spinner fa-spin text-2xl"></i>
+            </div>
+
+        </main>
+
+        <!-- НИЖНЯЯ НАВИГАЦИЯ (TAB BAR) -->
+        <nav
+            class="absolute bottom-0 w-full bg-white border-t border-gray-200 flex justify-around items-center h-14 text-xs text-gray-500 pb-safe">
+            <button class="flex flex-col items-center gap-1 text-black">
+                <i class="fa-solid fa-house text-lg"></i>
+                <span>Главная</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 hover:text-black transition-colors">
+                <i class="fa-solid fa-play text-lg"></i>
+                <span>Видео</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 hover:text-black transition-colors">
+                <i
+                    class="fa-solid fa-plus text-lg bg-black text-white w-6 h-6 rounded-full flex items-center justify-center"></i>
+                <span>Создать</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 hover:text-black transition-colors">
+                <i class="fa-regular fa-bookmark text-lg"></i>
+                <span>Коллекции</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 hover:text-black transition-colors">
+                <i class="fa-regular fa-user text-lg"></i>
+                <span>Профиль</span>
+            </button>
+        </nav>
+
+    </div>
+
+</body>
+
+</html>
